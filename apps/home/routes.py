@@ -18,16 +18,7 @@ def index():
 
 @blueprint.route('/logs')
 def logs():
-    filenames = os.listdir('/home/ubuntu/meraki/webportal/apps/static/logs')
-    return render_template('home/logs.html', files=filenames)
-
-@blueprint.route('/logs/<path:filename>')
-def log(filename):
-    return send_from_directory(
-        os.path.abspath('/home/ubuntu/meraki/webportal/apps/static/logs'),
-        filename,
-        as_attachment=True
-    )
+    return render_template('home/logs.html')
 
 @blueprint.route('/<template>')
 @login_required
