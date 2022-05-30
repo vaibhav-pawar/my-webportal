@@ -16,15 +16,15 @@ def index():
 
     return render_template('home/index.html', segment='index')
 
-@blueprint.route('/home/logs/')
+@blueprint.route('/logs')
 def logs():
-    filenames = os.listdir('logs')
+    filenames = os.listdir('/home/ubuntu/meraki/webportal/apps/static/logs')
     return render_template('home/logs.html', files=filenames)
 
-@blueprint.route('/home/logs/<path:filename>')
+@blueprint.route('/logs/<path:filename>')
 def log(filename):
     return send_from_directory(
-        os.path.abspath('logs'),
+        os.path.abspath('/home/ubuntu/meraki/webportal/apps/static/logs'),
         filename,
         as_attachment=True
     )
