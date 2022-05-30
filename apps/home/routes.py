@@ -19,7 +19,7 @@ def index():
 @blueprint.route('/home/logs/')
 def logs():
     filenames = os.listdir('logs')
-    return render_template('logs.html', files=filenames)
+    return render_template('home/logs.html', files=filenames)
 
 @blueprint.route('/home/logs/<path:filename>')
 def log(filename):
