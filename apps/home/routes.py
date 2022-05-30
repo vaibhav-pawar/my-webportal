@@ -1,8 +1,3 @@
-# -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
-
 import os
 from apps.home import blueprint
 from flask import render_template, request, Flask, send_from_directory
@@ -15,10 +10,6 @@ from jinja2 import TemplateNotFound
 def index():
 
     return render_template('home/index.html', segment='index')
-
-@blueprint.route('/logs')
-def logs():
-    return render_template('home/logs.html')
 
 @blueprint.route('/<template>')
 @login_required
