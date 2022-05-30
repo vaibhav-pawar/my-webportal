@@ -16,6 +16,19 @@ def index():
 
     return render_template('home/index.html', segment='index')
 
+@blueprint.route('home/logs/')
+def logs():
+    filenames = os.listdir('logs')
+    return render_template('logs.html', files=filenames)
+
+@blueprint.route('home/logs/<path:filename>')
+def log(filename):
+    return send_from_directory(
+        os.path.abspath('logs'),
+        filename,
+        as_attachment=True
+    )
+
 @blueprint.route('/<template>')
 @login_required
 def route_template(template):
