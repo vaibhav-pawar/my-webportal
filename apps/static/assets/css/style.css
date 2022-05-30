@@ -26274,7 +26274,7 @@ div.dtk-focus-alt table.dataTable tbody th.focus {
     overflow: hidden;
     min-width: 100%;
     min-height: 100vh;
-    background: linear-gradient(45deg, #4099ff, #000000);
+    background: linear-gradient(45deg, #000000, #000000);
 }
 
 @media (min-width: 1200px) {
