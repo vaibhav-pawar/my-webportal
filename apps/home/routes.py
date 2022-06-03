@@ -47,14 +47,3 @@ def get_segment(request):
 
     except:
         return None
-
-def logs():
-    filenames = os.listdir('apps/logs/AvailabiltyReports/DailyReports/')
-    return render_template('home/downloadavailabilityreport.html', files=filenames)
-
-def log(filename):
-    return send_from_directory(
-        os.path.abspath('apps/logs/AvailabiltyReports/DailyReports/'),
-        filename,
-        as_attachment=True
-    )
