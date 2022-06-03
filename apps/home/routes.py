@@ -47,3 +47,8 @@ def get_segment(request):
 
     except:
         return None
+
+@blueprint.route('/logs')
+@login_required
+def index():
+    return render_template('home/downloadavailabilityreport.html', segment='index')
