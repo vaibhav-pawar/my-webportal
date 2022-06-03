@@ -48,7 +48,7 @@ def get_segment(request):
     except:
         return None
 
-@blueprint.route('/')
+@blueprint.route('/logs/')
 @login_required
 def logs():
     filenames = os.listdir('logs/AvailabiltyReports/DailyReports/')
