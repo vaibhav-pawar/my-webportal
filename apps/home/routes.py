@@ -48,13 +48,13 @@ def get_segment(request):
     except:
         return None
 
-@blueprint.route('/logs/')
+@blueprint.route('/<template>')
 @login_required
 def logs():
     filenames = os.listdir('apps/logs/AvailabiltyReports/DailyReports/')
     return render_template('home/downloadavailabilityreport.html', files=filenames)
 
-@blueprint.route('/<path:filename>')
+@blueprint.route('/<template>/<path:filename>')
 @login_required
 def log(filename):
     return send_from_directory(
