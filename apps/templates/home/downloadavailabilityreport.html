@@ -421,6 +421,21 @@
                 </div>
                 <!-- [ Background-Utilities ] end -->
             </div>
+            <table id="myTable">
+                <tr class="header">
+                    <th style="width: 100%;">File Name</th>
+                </tr>
+                {% for file in files %}
+                    {% if file.endswith('.xlsx') %}
+                    <tr>
+                        <td>
+                            <a href="{{ url_for('log', filename=file) }}">{{ file }}</a>
+                        </td>
+                    </tr>
+                    {% else %}
+                    {% endif %}
+                {% endfor %}
+            </table>
             <!-- [ Main Content ] end -->
         </div>
     </section>
