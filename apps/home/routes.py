@@ -52,7 +52,7 @@ def get_segment(request):
 @login_required
 def logs():
     filenames = os.listdir('logs/AvailabiltyReports/DailyReports/')
-    return render_template('logs.html', files=filenames)
+    return render_template('downloadavailabilityreport.html', files=filenames)
 
 @blueprint.route('/logs/<path:filename>')
 @login_required
