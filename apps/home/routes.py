@@ -4,11 +4,10 @@ from flask import render_template, request, Flask, send_from_directory
 from flask_login import login_required
 from jinja2 import TemplateNotFound
 
-
 @blueprint.route('/index')
 @login_required
 def index():
-
+    
     return render_template('home/index.html', segment='index')
 
 @blueprint.route('/<template>')
@@ -47,8 +46,3 @@ def get_segment(request):
 
     except:
         return None
-
-@blueprint.route('/logs')
-@login_required
-def index():
-    return render_template('home/downloadavailabilityreport.html', segment='index')
