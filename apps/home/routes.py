@@ -10,12 +10,6 @@ def index():
     
     return render_template('home/index.html', segment='index')
 
-@blueprint.route('/testing')
-@login_required
-def testing():
-    
-    return render_template('home/vaitesting.html', segment='index')
-
 @blueprint.route('/<template>')
 @login_required
 def route_template(template):
@@ -52,3 +46,9 @@ def get_segment(request):
 
     except:
         return None
+
+@blueprint.route('/testing')
+@login_required
+def testing(segment):
+    
+    return render_template('home/vaitesting.html', segment=segment)
