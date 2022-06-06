@@ -49,6 +49,6 @@ def get_segment(request):
 
 @blueprint.route('/testing')
 @login_required
-def testing(segment):
+def testing():
     
-    return render_template('home/vaitesting.html', segment=segment)
+    return render_template('home/downloadavailabilityreport.html')
