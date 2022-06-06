@@ -14,7 +14,7 @@ def index():
 @login_required
 def testing():
     
-    return render_template('home/vaitesting.html')
+    return render_template('home/vaitesting.html', segment='index')
 
 @blueprint.route('/<template>')
 @login_required
