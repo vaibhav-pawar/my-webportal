@@ -357,7 +357,7 @@
                                         {% if file.endswith('.xlsx') %}
                                         <tr>
                                             <td>
-                                                <a href="{{ url_for('log', filename=file) }}">{{ file }}</a>
+                                                <a href="{{ url_for('.log', filename=file) }}">{{ file }}</a>
                                             </td>
                                         </tr>
                                         {% else %}
