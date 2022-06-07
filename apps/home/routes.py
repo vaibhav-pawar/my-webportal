@@ -47,7 +47,7 @@ def get_segment(request):
     except:
         return None
 
-@blueprint.route('/direction')
+@blueprint.route('/reports/Availabilityreport')
 @login_required
 def testing():
     
