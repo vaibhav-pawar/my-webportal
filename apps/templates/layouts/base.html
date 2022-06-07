@@ -26,7 +26,13 @@
     <link rel="stylesheet" href="/static/assets/css/style.css">
     
     <!-- Specific CSS goes HERE -->
-    {% block stylesheets %}{% endblock stylesheets %}    
+    {% block stylesheets %}
+    <script>
+        $(document).ready(function () {
+          $('#example').DataTable();
+        });
+      </script>
+    {% endblock stylesheets %}    
 
 </head>
 <body class="">
