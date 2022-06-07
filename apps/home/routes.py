@@ -50,13 +50,13 @@ def get_segment(request):
 @blueprint.route('/reports/Availabilityreport')
 @login_required
 def logs():
-    filenames = os.listdir('logs/AvailabiltyReports/DailyReports/')
+    filenames = os.listdir('apps/logs/AvailabiltyReports/DailyReports/')
     return render_template('home/downloadavailabilityreport.html', files=filenames)
 
 @blueprint.route('/reports/Availabilityreport/<path:filename>')
 def log(filename):
     return send_from_directory(
-        os.path.abspath('logs/AvailabiltyReports/DailyReports/'),
+        os.path.abspath('apps/logs/AvailabiltyReports/DailyReports/'),
         filename,
         as_attachment=True
     )
