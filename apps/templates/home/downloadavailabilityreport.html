@@ -349,20 +349,28 @@
                         </div>
                         <div class="card-body table-border-style">
                             <div class="table-responsive">
-                                <table id="myTable">
-                                    <tr class="header">
-                                        <th style="width: 100%;">File Name</th>
-                                    </tr>
-                                    {% for file in files %}
+                                <table id="example" class="table table-striped text-center" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" style="width: 70%;"> FileName </th>
+                                            <th class="text-center" style="width: 30%;"> Download </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      {% for file in files %}
                                         {% if file.endswith('.xlsx') %}
                                         <tr>
                                             <td>
-                                                <a href="{{ url_for('.log', filename=file) }}">{{ file }}</a>
+                                              {{ file }}
+                                            </td>
+                                            <td>
+                                              <a href="{{ url_for('log', filename=file) }}">Download</a>
                                             </td>
                                         </tr>
                                         {% else %}
                                         {% endif %}
-                                    {% endfor %}
+                                      {% endfor %}
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
