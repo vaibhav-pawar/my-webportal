@@ -54,6 +54,7 @@ def logs():
     return render_template('home/downloadavailabilityreport.html', files=filenames)
 
 @blueprint.route('/reports/Availabilityreport/<path:filename>')
+@login_required
 def log(filename):
     return send_from_directory(
         os.path.abspath('apps/logs/AvailabiltyReports/DailyReports/'),
