@@ -67,9 +67,9 @@ def dailyreport(filename):
         as_attachment=True
     )
 
-def monthlyreport(filename):
+def monthlyreport(filename1):
     return send_from_directory(
         os.path.abspath('apps/logs/AvailabiltyReports/MonthlyReports/'),
-        filename,
+        filename1,
         as_attachment=True
     )
