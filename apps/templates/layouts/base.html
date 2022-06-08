@@ -26,13 +26,7 @@
     <link rel="stylesheet" href="/static/assets/css/style.css">
     
     <!-- Specific CSS goes HERE -->
-    {% block stylesheets %}
-    <script>
-        $(document).ready(function () {
-          $('#example').DataTable();
-        });
-      </script>
-    {% endblock stylesheets %}    
+    {% block stylesheets %}{% endblock stylesheets %}    
 
 </head>
 <body class="">
@@ -54,7 +48,13 @@
     {% include 'includes/scripts.html' %}
 
     <!-- Specific Page JS goes HERE  -->
-    {% block javascripts %}{% endblock javascripts %}
+    {% block javascripts %}
+    <script>
+        $(document).ready(function () {
+          $('#example').DataTable();
+        });
+    </script>
+    {% endblock javascripts %}
 
 </body>
 </html>
