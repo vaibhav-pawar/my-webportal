@@ -47,19 +47,22 @@ def get_segment(request):
     except:
         return None
 
+'''
 @blueprint.route('/reports/Availabilityreport')
 @login_required
 def dailyreports():
     filenames = os.listdir('apps/logs/AvailabiltyReports/DailyReports/')
     return render_template('home/downloadavailabilityreport.html', files=filenames)
+'''
+
 
 @blueprint.route('/reports/Availabilityreport')
 @login_required
 def monthlyreports():
-    filenames1 = os.listdir('apps/logs/AvailabiltyReports/MonthlyReports/')
-    return render_template('home/downloadavailabilityreport.html', files=filenames1)
+    filenames = os.listdir('apps/logs/AvailabiltyReports/MonthlyReports/')
+    return render_template('home/downloadavailabilityreport.html', files=filenames)
 
-
+'''
 @blueprint.route('/reports/Availabilityreport/<path:filename>')
 @login_required
 def dailyreport(filename):
@@ -68,12 +71,13 @@ def dailyreport(filename):
         filename,
         as_attachment=True
     )
+'''
 
-@blueprint.route('/reports/Availabilityreport/<path:filename1>')
+@blueprint.route('/reports/Availabilityreport/<path:filename>')
 @login_required
-def monthlyreport(filename1):
+def monthlyreport(filename):
     return send_from_directory(
         os.path.abspath('apps/logs/AvailabiltyReports/MonthlyReports/'),
-        filename1,
+        filename,
         as_attachment=True
     )
