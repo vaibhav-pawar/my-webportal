@@ -315,6 +315,7 @@
                                     </thead>
                                     <tbody>
                                         {% for file in files %}
+                                        {% if file.endswith('.xlsx') %}
                                         <tr>
                                             <td>
                                               {{ file }}
@@ -323,6 +324,8 @@
                                               <a href="{{ url_for('.monthlyreport', filename1=file) }}">Download</a>
                                             </td>
                                         </tr>
+                                        {% else %}
+                                        {% endif %}
                                         {% endfor %}
                                     </tbody>
                                 </table>
