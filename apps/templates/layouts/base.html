@@ -24,8 +24,6 @@
 
     <!-- vendor css -->
     <link rel="stylesheet" href="/static/assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     
     <!-- Specific CSS goes HERE -->
     {% block stylesheets %}{% endblock stylesheets %}    
@@ -51,11 +49,6 @@
 
     <!-- Specific Page JS goes HERE  -->
     {% block javascripts %}
-    <script>
-        $(document).ready(function () {
-          $('#example').DataTable();
-        });
-    </script>
     {% endblock javascripts %}
 
 </body>
