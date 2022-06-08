@@ -49,13 +49,13 @@ def get_segment(request):
 
 @blueprint.route('/reports/Availabilityreport')
 @login_required
-def DailyReport():
+def logs():
     filenames = os.listdir('apps/logs/AvailabiltyReports/DailyReports/')
     return render_template('home/downloadavailabilityreport.html', files=filenames)
 
 @blueprint.route('/reports/Availabilityreport/<path:filename>')
 @login_required
-def DailyReports(filename):
+def dailyreport(filename):
     return send_from_directory(
         os.path.abspath('apps/logs/AvailabiltyReports/DailyReports/'),
         filename,
