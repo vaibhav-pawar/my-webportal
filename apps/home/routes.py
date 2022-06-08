@@ -67,6 +67,8 @@ def dailyreport(filename):
         as_attachment=True
     )
 
+@blueprint.route('/reports/Availabilityreport/<path:filename1>')
+@login_required
 def monthlyreport(filename1):
     return send_from_directory(
         os.path.abspath('apps/logs/AvailabiltyReports/MonthlyReports/'),
