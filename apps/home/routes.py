@@ -55,7 +55,7 @@ def logs():
 
 @blueprint.route('/reports/Availabilityreport/<path:filename>')
 @login_required
-def dailyreport(filename):
+def log(filename):
     return send_from_directory(
         os.path.abspath('apps/logs/AvailabiltyReports/DailyReports/'),
         filename,
