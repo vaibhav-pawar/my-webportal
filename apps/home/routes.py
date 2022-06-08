@@ -54,7 +54,7 @@ def dailyreports():
     return render_template('home/downloadavailabilityreport.html', files=filenames)
 
 def monthlyreports():
-    filenames = os.listdir('apps/logs/AvailabiltyReports/DailyReports/')
+    filenames = os.listdir('apps/logs/AvailabiltyReports/MonthlyReports/')
     return render_template('home/downloadavailabilityreport.html', files=filenames)
 
 
@@ -69,7 +69,7 @@ def dailyreport(filename):
 
 def monthlyreport(filename):
     return send_from_directory(
-        os.path.abspath('apps/logs/AvailabiltyReports/DailyReports/'),
+        os.path.abspath('apps/logs/AvailabiltyReports/MonthlyReports/'),
         filename,
         as_attachment=True
     )
