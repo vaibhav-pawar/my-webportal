@@ -61,3 +61,18 @@ def dailyreport(filename):
         filename,
         as_attachment=True
     )
+
+@blueprint.route('/reports/download100mbpsnegoreports')
+@login_required
+def dailyreports():
+    filenames = os.listdir('apps/logs/AvailabiltyReports/DailyReports/')
+    return render_template('home/download100mbpsnegoreports.html', files=filenames)
+
+@blueprint.route('/reports/Availabilityreport/<path:filename>')
+@login_required
+def dailyreport(filename):
+    return send_from_directory(
+        os.path.abspath('apps/logs/AvailabiltyReports/DailyReports/'),
+        filename,
+        as_attachment=True
+    )
