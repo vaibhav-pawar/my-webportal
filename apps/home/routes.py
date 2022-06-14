@@ -64,13 +64,13 @@ def dailyreport(filename):
 
 @blueprint.route('/reports/download100mbpsnegoreports')
 @login_required
-def dailyreports():
+def hundreadmbpsreports():
     filenames = os.listdir('apps/logs/AvailabiltyReports/DailyReports/')
     return render_template('home/download100mbpsnegoreports.html', files=filenames)
-
-@blueprint.route('/reports/Availabilityreport/<path:filename>')
+    
+@blueprint.route('/reports/download100mbpsnegoreports/<path:filename>')
 @login_required
-def dailyreport(filename):
+def hundreadmbpsreport(filename):
     return send_from_directory(
         os.path.abspath('apps/logs/AvailabiltyReports/DailyReports/'),
         filename,
