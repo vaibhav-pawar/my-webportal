@@ -7,7 +7,6 @@ from jinja2 import TemplateNotFound
 @blueprint.route('/index')
 @login_required
 def index():
-    
     return render_template('home/index.html', segment='index')
 
 @blueprint.route('/direction/<template>')
@@ -47,19 +46,12 @@ def get_segment(request):
     except:
         return None
 
+
 @blueprint.route('/reports/Availabilityreport')
 @login_required
 def dailyreports():
     filenames = os.listdir('apps/logs/AvailabiltyReports/DailyReports/')
     return render_template('home/downloadavailabilityreport.html', files=filenames)
-
-'''
-@blueprint.route('/reports/Availabilityreport')
-@login_required
-def monthlyreports():
-    filenames = os.listdir('apps/logs/AvailabiltyReports/MonthlyReports/')
-    return render_template('home/downloadavailabilityreport.html', files=filenames)
-'''
 
 @blueprint.route('/reports/Availabilityreport/<path:filename>')
 @login_required
@@ -69,14 +61,3 @@ def dailyreport(filename):
         filename,
         as_attachment=True
     )
-
-'''
-@blueprint.route('/reports/Availabilityreport/<path:filename>')
-@login_required
-def monthlyreport(filename):
-    return send_from_directory(
-        os.path.abspath('apps/logs/AvailabiltyReports/MonthlyReports/'),
-        filename,
-        as_attachment=True
-    )
-'''
