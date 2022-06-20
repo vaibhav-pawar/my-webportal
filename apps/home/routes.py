@@ -53,6 +53,10 @@ def dailyreports():
     filenames = os.listdir('apps/logs/AvailabiltyReports/DailyReports/')
     return render_template('home/downloadavailabilityreport.html', files=filenames)
 
+def dailyreports():
+    filenames = os.listdir('apps/logs/AvailabiltyReports/DailyReports/')
+    return render_template('home/downloadavailabilityreport.html', files=filenames)
+
 @blueprint.route('/reports/Availabilityreport/<path:filename>')
 @login_required
 def dailyreport(filename):
