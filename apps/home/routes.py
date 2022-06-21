@@ -46,7 +46,7 @@ def get_segment(request):
     except:
         return None
 
-
+# Availabilty Report - Daily + Monthly Report
 @blueprint.route('/reports/Availabilityreport')
 @login_required
 def dailyreports():
@@ -66,6 +66,7 @@ def dailyreport(filename):
         as_attachment=True
     )
 
+# Download Report of AP Negotating at 100Mbps
 @blueprint.route('/reports/download100mbpsnegoreports')
 @login_required
 def hundreadmbpsreports():
@@ -77,6 +78,134 @@ def hundreadmbpsreports():
 def hundreadmbpsreport(filename):
     return send_from_directory(
         os.path.abspath('apps/logs/100mbps/'),
+        filename,
+        as_attachment=True
+    )
+
+# Download Report of AP Negotating at 1Gbps
+@blueprint.route('/reports/download1gbpsnegoreports')
+@login_required
+def onegbpsreports():
+    filenames = os.listdir('apps/logs/ap-negotiating-1gbps/')
+    return render_template('home/download1gbpsnegoreports.html', files=filenames)
+    
+@blueprint.route('/reports/download1gbpsnegoreports/<path:filename>')
+@login_required
+def onegbpsreport(filename):
+    return send_from_directory(
+        os.path.abspath('apps/logs/ap-negotiating-1gbps/'),
+        filename,
+        as_attachment=True
+    )
+
+# Download Report of High CRC error switchports
+@blueprint.route('/reports/downloadcrcerrorreports')
+@login_required
+def crcreports():
+    filenames = os.listdir('apps/logs/CRCerrors/')
+    return render_template('home/downloadcrcerrorreports.html', files=filenames)
+    
+@blueprint.route('/reports/downloadcrcerrorreports/<path:filename>')
+@login_required
+def crcreport(filename):
+    return send_from_directory(
+        os.path.abspath('apps/logs/CRCerrors/'),
+        filename,
+        as_attachment=True
+    )
+
+# Download Report of ServierGuestEnabledSites
+@blueprint.route('/reports/downloadservierguestenabledsitereports')
+@login_required
+def servierguestenabledreports():
+    filenames = os.listdir('apps/logs/Servier_guest_Enabled_sites/')
+    return render_template('home/downloadservierguestenabledsitereports.html', files=filenames)
+    
+@blueprint.route('/reports/downloadservierguestenabledsitereports/<path:filename>')
+@login_required
+def servierguestenabledreport(filename):
+    return send_from_directory(
+        os.path.abspath('apps/logs/Servier_guest_Enabled_sites/'),
+        filename,
+        as_attachment=True
+    )
+
+# Download Report of ServierGuestDisabledSites
+@blueprint.route('/reports/downloadservierguestdisabledsitereports')
+@login_required
+def servierguestdisabledreports():
+    filenames = os.listdir('apps/logs/Servier_guest_Disabled_sites/')
+    return render_template('home/downloadservierguestdisabledsitereports.html', files=filenames)
+    
+@blueprint.route('/reports/downloadservierguestdisabledsitereports/<path:filename>')
+@login_required
+def servierguestdisabledreport(filename):
+    return send_from_directory(
+        os.path.abspath('apps/logs/Servier_guest_Disabled_sites/'),
+        filename,
+        as_attachment=True
+    )
+
+# Download Report of | Find specific Tags On Switches and Core
+@blueprint.route('/reports/downloadtagonswitchesandcorereports')
+@login_required
+def tagonswitchesandcorereports():
+    filenames = os.listdir('apps/logs/Tag-filtering-on-Network-Devices/')
+    return render_template('home/downloadtagonswitchesandcorereports.html', files=filenames)
+    
+@blueprint.route('/reports/downloadtagonswitchesandcorereports/<path:filename>')
+@login_required
+def tagonswitchesandcorereport(filename):
+    return send_from_directory(
+        os.path.abspath('apps/logs/Tag-filtering-on-Network-Devices/'),
+        filename,
+        as_attachment=True
+    )
+
+# Download Report of | Tag Filtering on MR or MS devices
+@blueprint.route('/reports/downloadtagfilteringonDevicesreports')
+@login_required
+def tagfilteringonDevicesreports():
+    filenames = os.listdir('apps/logs/Tag-filtering-on-Devices/')
+    return render_template('home/downloadtagfilteringonDevicesreports.html', files=filenames)
+    
+@blueprint.route('/reports/downloadtagfilteringonDevicesreports/<path:filename>')
+@login_required
+def tagfilteringonDevicesreport(filename):
+    return send_from_directory(
+        os.path.abspath('apps/logs/Tag-filtering-on-Devices/'),
+        filename,
+        as_attachment=True
+    )
+
+# Download Report of | Tag Filtering on Switchports
+@blueprint.route('/reports/downloadtagfilteringonswitchportsreports')
+@login_required
+def tagfilteringonswitchportsreports():
+    filenames = os.listdir('apps/logs/Tag-filtering-on-switchports/')
+    return render_template('home/downloadtagfilteringonswitchportsreports.html', files=filenames)
+    
+@blueprint.route('/reports/downloadtagfilteringonswitchportsreports/<path:filename>')
+@login_required
+def tagfilteringonswitchportsreport(filename):
+    return send_from_directory(
+        os.path.abspath('apps/logs/Tag-filtering-on-switchports/'),
+        filename,
+        as_attachment=True
+    )
+
+# Download Report of | DFS events detected on AP
+@blueprint.route('/reports/downloaddfseventsreports')
+@login_required
+def dfseventsreports():
+    filenames = os.listdir('apps/logs/dfs-events/')
+    return render_template('home/downloaddfseventsreports.html', files=filenames)
+    
+@blueprint.route('/reports/downloaddfseventsreports/<path:filename>')
+@login_required
+def dfseventsreport(filename):
+    return send_from_directory(
+        os.path.abspath('apps/logs/dfs-events/'),
         filename,
         as_attachment=True
     )
