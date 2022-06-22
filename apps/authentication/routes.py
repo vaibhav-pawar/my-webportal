@@ -26,11 +26,11 @@ def login():
     if 'login' in request.form:
 
         # read form data
-        email = request.form['email']
+        username = request.form['username']
         password = request.form['password']
 
         # Locate user
-        user = Users.query.filter_by(email=email).first()
+        user = Users.query.filter_by(username=username).first()
 
         # Check the password
         if user and verify_pass(password, user.password):
