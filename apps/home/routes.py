@@ -53,8 +53,8 @@ def dailyreports():
     filenames = os.listdir('apps/logs/AvailabiltyReports/DailyReports/')
     return render_template('home/downloadavailabilityreport.html', files=filenames)
 
-def dailyreports():
-    filenames = os.listdir('apps/logs/AvailabiltyReports/DailyReports/')
+def monthlyreports():
+    filenames = os.listdir('apps/logs/AvailabiltyReports/')
     return render_template('home/downloadavailabilityreport.html', files=filenames)
 
 @blueprint.route('/reports/Availabilityreport/<path:filename>')
@@ -62,6 +62,13 @@ def dailyreports():
 def dailyreport(filename):
     return send_from_directory(
         os.path.abspath('apps/logs/AvailabiltyReports/DailyReports/'),
+        filename,
+        as_attachment=True
+    )
+
+def montlyreport(filename):
+    return send_from_directory(
+        os.path.abspath('apps/logs/AvailabiltyReports/'),
         filename,
         as_attachment=True
     )

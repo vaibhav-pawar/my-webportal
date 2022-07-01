@@ -311,17 +311,14 @@
                                     </thead>
                                     <tbody>
                                         {% for file in files %}
-                                        {% if file.endswith('.xlsx') %}
                                         <tr>
                                             <td>
                                               {{ file }}
                                             </td>
                                             <td>
-                                              <a href="{{ url_for('.dailyreport', filename=file) }}">Download</a>
+                                              <a href="{{ url_for('.monthlyreport', filename=file) }}">Download</a>
                                             </td>
                                         </tr>
-                                        {% else %}
-                                        {% endif %}
                                         {% endfor %}
                                     </tbody>
                                 </table>
